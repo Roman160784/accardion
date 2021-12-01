@@ -7,6 +7,7 @@ type SelfControlledAccardionPropsType = {
 
 type AccardionTitlePropsType = {
   title: string
+  onClick: () => void
 }
 
 export function SelfControlledAccardion(props: SelfControlledAccardionPropsType) {
@@ -14,8 +15,7 @@ export function SelfControlledAccardion(props: SelfControlledAccardionPropsType)
 let[collapsed, setCollapsed] = useState(false)
   return (
     <div>
-      <AccardionTitle title={props.titleValue} /> 
-      <button onClick={()=>{setCollapsed(!collapsed)}}>TOGGlE</button> 
+      <AccardionTitle title={props.titleValue} onClick={()=> {setCollapsed(!collapsed)} } /> 
       {!collapsed && <AccardionBody />}
       {/* {!props.collapsed && <AccardionBody />} */}
     </div>
@@ -34,6 +34,6 @@ function AccardionBody() {
 }
 function AccardionTitle(props: AccardionTitlePropsType) {
   return (
-    <h3>---{props.title}---</h3>
+    <h3 onClick={() => {props.onClick()}}>---{props.title}---</h3>
   )
 }

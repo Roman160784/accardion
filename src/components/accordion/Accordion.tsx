@@ -3,18 +3,23 @@ import React from 'react';
 type AccardionPropsType = {
   titleValue: string
   collapsed: boolean
+  onChange: () => void
 }
 
 type AccardionTitlePropsType = {
   title: string
+  onChange: () => void
+
 }
 
 export function Accardion(props: AccardionPropsType) {
   return (
     <div>
-      <AccardionTitle title={props.titleValue} />
+      <AccardionTitle title={props.titleValue}
+        onChange={props.onChange}
+      />
       {props.collapsed === true && <AccardionBody />}
-      {/* {!props.collapsed && <AccardionBody />} */} 
+      {/* {!props.collapsed && <AccardionBody />} */}
     </div>
   )
 }
@@ -31,6 +36,6 @@ function AccardionBody() {
 }
 function AccardionTitle(props: AccardionTitlePropsType) {
   return (
-    <h3>---{props.title}---</h3>
+    <h3 onClick={props.onChange}>---{props.title}---</h3>
   )
 }
