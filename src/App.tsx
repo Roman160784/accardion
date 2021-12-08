@@ -6,6 +6,8 @@ import { Rating, RatingValueType } from './components/rating/Rating'
 import { UnControledRating } from './components/rating/UnControleedRating'
 import OnOff from './components/OnOff'
 import './App.css';
+import { isPropertySignature } from 'typescript';
+import { title } from 'process';
 
 
 
@@ -14,13 +16,20 @@ function App() {
   let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
   let [accardionColapsed, setAccardionColapsed] = useState<boolean>(true)
 
+  const onClick = () => {
+    alert(`${title} ${'hi'}`)
+  }
+
   return (
     <div className="App">
       <PageTitle title={"This is App component"} />
       <OnOff />
 
       <PageTitle title={"MY FRIENDS"} />
-      <Accardion titleValue={"Menu"} collapsed={accardionColapsed} onChange={() => { setAccardionColapsed(!accardionColapsed) }} />
+      <Accardion titleValue={"Menu"} collapsed={accardionColapsed} onChange={() => { setAccardionColapsed(!accardionColapsed) }} 
+      items={[{title:'Dima', value: 1}, {title:'Valera', value: 2}, {title:'Art', value: 3}]} 
+      onClick={onClick}
+      />
 
       <OnOff />
       <SelfControlledAccardion titleValue={"+++Menu+++"} />
