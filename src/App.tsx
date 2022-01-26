@@ -8,8 +8,9 @@ import OnOff from './components/OnOff'
 import './App.css';
 import { isPropertySignature } from 'typescript';
 import { title } from 'process';
-import {Input} from './components/Input'
-import {Select} from './components/accordion/Select'
+import { Input } from './components/Input'
+import { Select } from './components/accordion/Select'
+import { Example } from './components/rating/UseMemo'
 
 
 
@@ -26,20 +27,21 @@ function App() {
     <div className="App">
       <PageTitle title={"This is App component"} />
       <OnOff />
-      <Input/>
+      <Input />
       <PageTitle title={"MY FRIENDS"} />
-      <Accardion titleValue={"Menu"} collapsed={accardionColapsed} onChange={() => { setAccardionColapsed(!accardionColapsed) }} 
-      items={[{title:'Dima', value: 1}, {title:'Valera', value: 2}, {title:'Art', value: 3}]} 
-      onClick={onClick}
+      <Accardion titleValue={"Menu"} collapsed={accardionColapsed} onChange={() => { setAccardionColapsed(!accardionColapsed) }}
+        items={[{ title: 'Dima', value: 1 }, { title: 'Valera', value: 2 }, { title: 'Art', value: 3 }]}
+        onClick={onClick}
       />
 
       <OnOff />
-      <SelfControlledAccardion titleValue={"+++Menu+++___------"} items={[]} onClickBody={() => {}}  />
+      <SelfControlledAccardion titleValue={"+++Menu+++___------"} items={[]} onClickBody={() => { }} />
       <Rating value={ratingValue} onClick={setRatingValue} />
       <OnOff />
       <UnControledRating />
-      <Select value={title} onChange={() => {}} 
-      items={[{title:'Dima', value: 1}, {title:'Valera', value: 2}, {title:'Art', value: 3}]}/>
+      <Select value={title} onChange={() => { }}
+        items={[{ title: 'Dima', value: 1 }, { title: 'Valera', value: 2 }, { title: 'Art', value: 3 }]} />
+      <Example />
     </div>
   );
 }
@@ -55,7 +57,3 @@ function PageTitle(props: PageTitlePropsType) {
 }
 
 export default App;
-function value(value: any) {
-  throw new Error('Function not implemented.');
-}
-
