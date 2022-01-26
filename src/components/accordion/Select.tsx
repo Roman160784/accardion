@@ -39,6 +39,4 @@ export const Select = (props: SelectPropsType) => {
     )
 }
 
-function iteamClicked(value: any) {
-    throw new Error('Function not implemented.');
-}
+

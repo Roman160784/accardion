@@ -10,6 +10,7 @@ import { isPropertySignature } from 'typescript';
 import { title } from 'process';
 import { Input } from './components/Input'
 import { Select } from './components/accordion/Select'
+import { UseStateX } from './components/accordion/UseStateX'
 import { Example } from './components/rating/UseMemo'
 
 
@@ -42,6 +43,7 @@ function App() {
       <Select value={title} onChange={() => { }}
         items={[{ title: 'Dima', value: 1 }, { title: 'Valera', value: 2 }, { title: 'Art', value: 3 }]} />
       <Example />
+      <UseStateX />
     </div>
   );
 }
